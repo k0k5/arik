@@ -1,0 +1,377 @@
+/* Сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Основной контейнер */
+.app {
+    display: flex;
+    height: 100vh;
+    background: #303030;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+/* ===== ЛЕВАЯ ПАНЕЛЬ ===== */
+.chats-sidebar {
+    width: 331px;
+    height: calc(100vh - 50px);
+    background: #454545;
+    margin: 25px;
+    border-radius: 13px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Поиск */
+.poisk {
+    margin-bottom: 20px;
+}
+
+.poisk input {
+    width: 100%;
+    padding: 12px 15px;
+    background: transparent;
+    border: 2px solid #5b5b5b;
+    border-radius: 13px;
+    color: white;
+    font-size: 16px;
+}
+
+.poisk input::placeholder {
+    color: #9e9e9e;
+}
+
+/* Список чатов */
+.chats-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.chat-item:hover {
+    background: #404040;
+}
+
+.chat-item.active {
+    background: #3d3d3d;
+}
+
+.chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(to top, #4e8ad8, #523cca);
+    margin-right: 12px;
+    position: relative;
+}
+
+.status {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #454545;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.status.online {
+    background: #4CAF50;
+}
+
+.status.offline {
+    background: #757575;
+}
+
+.chat-name {
+    color: white;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.last-message {
+    color: #a7a7a7;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.chat-time {
+    color: #a7a7a7;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+/* Кнопка нового чата */
+.new-chat-btn {
+    width: 100%;
+    padding: 12px;
+    background: #44349e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.new-chat-btn:hover {
+    background: #3a7bc8;
+}
+
+/* Модальное окно */
+.modal {
+    position: absolute;
+    bottom: 70px;
+    left: 20px;
+    right: 20px;
+    background: #454545;
+    border-radius: 13px;
+    border: 1px solid #5b5b5b;
+    z-index: 100;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #5b5b5b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    color: white;
+    margin: 0;
+    font-size: 16px;
+}
+
+.modal-header button {
+    background: none;
+    border: none;
+    color: #a7a7a7;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.modal-users {
+    padding: 10px;
+}
+
+.modal-user {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 12px;
+}
+
+.modal-user:hover {
+    background: #5b5b5b;
+}
+
+.user-name {
+    color: white;
+    font-weight: 500;
+}
+
+.user-status {
+    font-size: 12px;
+    color: #a7a7a7;
+}
+
+/* ===== ПРАВАЯ ПАНЕЛЬ ===== */
+.chat-main {
+    width: calc(100vw - 381px);
+    height: calc(100vh - 50px);
+    background: hsl(0, 0%, 23%);
+    margin: 25px;
+    border-radius: 13px;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка чата */
+.chat-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #5b5b5b;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-info .status {
+    position: static;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(to top, #4e8ad8, #523cca);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info .status::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #454545;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.user-info .status.online::after {
+    background: #4CAF50;
+}
+
+.user-info .status.offline::after {
+    background: #757575;
+}
+
+.user-name {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.user-status {
+    color: #a7a7a7;
+    font-size: 13px;
+}
+
+/* Сообщения */
+.messages-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: calc(100vh - 200px);
+}
+
+.message {
+    max-width: 70%;
+}
+
+.message.received {
+    align-self: flex-start;
+}
+
+.message.sent {
+    align-self: flex-end;
+}
+
+.message-bubble {
+    padding: 12px 16px;
+    border-radius: 18px;
+    word-break: break-word;
+}
+
+.message.received .message-bubble {
+    background: #5b5b5b;
+}
+
+.message.sent .message-bubble {
+    background: #4e8ad8;
+}
+
+.message-text {
+    color: white;
+    margin-bottom: 4px;
+}
+
+.message-time {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    text-align: right;
+}
+
+/* Панель ввода */
+.input-panel {
+    padding: 16px 20px;
+    border-top: 1px solid #5b5b5b;
+    display: flex;
+    gap: 12px;
+}
+
+.input-panel input {
+    flex: 1;
+    padding: 12px 16px;
+    background: #5b5b5b;
+    border: none;
+    border-radius: 20px;
+    color: white;
+}
+
+.input-panel input::placeholder {
+    color: #a7a7a7;
+}
+
+.input-panel button {
+    padding: 12px 24px;
+    background: #4e8ad8;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.input-panel button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Нет чата */
+.no-chat {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a7a7a7;
+    font-size: 16px;
+}
+
+/* Скроллбары */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5b5b5b;
+    border-radius: 3px;
+}
