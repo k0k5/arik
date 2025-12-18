@@ -1,0 +1,266 @@
+/* pages.css - стили для страниц входа и регистрации */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Основные стили страницы */
+.pages-container {
+    background-color: #303030;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-y: auto;
+}
+
+/* Окно входа с формой */
+.pages-login-window {
+    background-color: #454545;
+    border-radius: 15px;
+    padding: 50px 40px;
+    width: 500px;
+    box-shadow: 0 9px 27px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+/* Окно регистрации с формой */
+.pages-register-window {
+    background-color: #454545;
+    border-radius: 15px;
+    padding: 50px 40px;
+    width: 500px;
+    box-shadow: 0 9px 27px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+/* Стили логотипа */
+.pages-logo {
+    width: 180px;
+    height: 180px;
+    background-color: #703f3f;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.3);
+}
+
+/* Треугольник внутри логотипа */
+.pages-triangle {
+    width: 110px;
+    height: 110px;
+    background-color: #FF9393;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Звезда внутри треугольника */
+.pages-star {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    clip-path: polygon(
+        50% 0%, 
+        61% 35%, 
+        98% 35%, 
+        68% 57%, 
+        79% 91%, 
+        50% 70%, 
+        21% 91%, 
+        32% 57%, 
+        2% 35%, 
+        39% 35%
+    );
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Блок загрузки аватара */
+.pages-avatar-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Контейнер предпросмотра аватара */
+.pages-avatar-preview {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #5b5b5b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid #703f3f;
+}
+
+/* Заглушка для аватара */
+.pages-avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #cccccc;
+    font-size: 50px;
+    font-weight: 300;
+}
+
+/* Иконка загрузки */
+.pages-upload-icon {
+    font-size: 60px;
+    font-weight: 200;
+    color: #cccccc;
+}
+
+/* Скрытый input для загрузки файла */
+.pages-avatar-input {
+    display: none;
+}
+
+/* Стили для кнопки выбора аватара */
+.pages-avatar-label {
+    padding: 12px 24px;
+    background-color: #5b5b5b;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+/* Группа полей ввода */
+.pages-input-group {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+/* Стили меток полей ввода */
+.pages-input-group label {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Стили полей ввода */
+.pages-input-group input {
+    width: 100%;
+    padding: 16px 18px;
+    background-color: #5b5b5b;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Основные кнопки */
+.pages-login-btn,
+.pages-register-btn {
+    width: 100%;
+    padding: 18px;
+    background-color: #5b5b5b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+/* Вторичные кнопки */
+.pages-login-btn-secondary,
+.pages-register-btn-secondary {
+    width: 100%;
+    padding: 18px;
+    background-color: transparent;
+    color: #cccccc;
+    border: 2px solid #5b5b5b;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .pages-login-window,
+    .pages-register-window {
+        width: 95%;
+        padding: 40px 30px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .pages-logo {
+        width: 150px;
+        height: 150px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    
+    .pages-triangle {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .pages-star {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 400px) {
+    .pages-container {
+        padding: 20px 10px;
+    }
+    
+    .pages-login-window,
+    .pages-register-window {
+        padding: 30px 20px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .pages-logo {
+        width: 130px;
+        height: 130px;
+        margin-top: 20px;
+    }
+    
+    .pages-triangle {
+        width: 80px;
+        height: 80px;
+    }
+}

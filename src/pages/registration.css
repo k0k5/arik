@@ -1,0 +1,278 @@
+/* Сброс стандартных стилей браузера */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Основные стили страницы */
+body {
+    background-color: #303030;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transform: scale(1.13);
+    transform-origin: center center;
+}
+
+/* Контейнер для центрирования контента */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Стили логотипа - квадрат с закругленными углами */
+.logo {
+    width: 170px;
+    height: 170px;
+    background-color: #703f3f;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 45px;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.3);
+}
+
+/* Треугольник внутри логотипа */
+.triangle {
+    width: 102px;
+    height: 102px;
+    background-color: #FF9393;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Звезда внутри треугольника */
+.star {
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    clip-path: polygon(
+        50% 0%, 
+        61% 35%, 
+        98% 35%, 
+        68% 57%, 
+        79% 91%, 
+        50% 70%, 
+        21% 91%, 
+        32% 57%, 
+        2% 35%, 
+        39% 35%
+    );
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Окно регистрации с формой */
+.register-window {
+    background-color: #454545;
+    border-radius: 15px;
+    padding: 45px 40px;
+    width: 100%;
+    box-shadow: 0 9px 27px rgba(0, 0, 0, 0.3);
+}
+
+/* Блок загрузки аватара */
+.avatar-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Контейнер предпросмотра аватара */
+.avatar-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #5b5b5b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid #703f3f;
+}
+
+/* Заглушка для аватара */
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #cccccc;
+    font-size: 40px;
+    font-weight: 300;
+}
+
+/* Иконка загрузки */
+.upload-icon {
+    font-size: 50px;
+    font-weight: 200;
+    color: #cccccc;
+}
+
+/* Скрытый input для загрузки файла */
+.avatar-input {
+    display: none;
+}
+
+/* Стили для кнопки выбора аватара */
+.avatar-label {
+    padding: 10px 20px;
+    background-color: #5b5b5b;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+/* Эффекты при наведении на кнопку выбора аватара */
+.avatar-label:hover {
+    background-color: #666666;
+    transform: translateY(-1px);
+}
+
+/* Предпросмотр загруженного аватара */
+.avatar-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Группа полей ввода */
+.input-group {
+    margin-bottom: 28px;
+}
+
+/* Стили меток полей ввода */
+.input-group label {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 11px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Стили полей ввода */
+.input-group input {
+    width: 100%;
+    padding: 16px 18px;
+    background-color: #5b5b5b;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Стили полей ввода при фокусе */
+.input-group input:focus {
+    background-color: #666666;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Стили placeholder в полях ввода */
+.input-group input::placeholder {
+    color: #cccccc;
+}
+
+/* Основная кнопка регистрации */
+.register-btn {
+    width: 100%;
+    padding: 17px;
+    background-color: #5b5b5b;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 17px;
+}
+
+/* Эффекты при наведении на кнопку регистрации */
+.register-btn:hover {
+    background-color: #666666;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
+}
+
+/* Кнопка входа для существующих пользователей */
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: transparent;
+    color: #cccccc;
+    border: 2px solid #5b5b5b;
+    border-radius: 9px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Эффекты при наведении на кнопку входа */
+.login-btn:hover {
+    background-color: #5b5b5b;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+    body {
+        transform: scale(1);
+        padding: 15px;
+    }
+    
+    .register-window {
+        padding: 35px 30px;
+    }
+    
+    .logo {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 35px;
+    }
+    
+    .triangle {
+        width: 85px;
+        height: 85px;
+    }
+    
+    .star {
+        width: 23px;
+        height: 23px;
+    }
+    
+    .avatar-preview {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .input-group label,
+    .input-group input,
+    .register-btn,
+    .login-btn {
+        font-size: 16px;
+    }
+}
